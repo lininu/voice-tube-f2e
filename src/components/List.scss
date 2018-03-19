@@ -1,0 +1,109 @@
+@import "./global/variable";
+
+.container {
+  margin: $gutter auto;
+  @media (min-width: $screen-sm-min) {
+    margin: ($gutter * 2) auto;
+  }
+  @media (min-width: $screen-lg-min) {
+    margin: ($gutter * 4) auto;
+  }
+  // 2 cards
+  @media (min-width: $screen-two-card-min) {
+    max-width: $screen-two-card-container;
+  }
+  // 3 cards
+  @media (min-width: $screen-three-card-min) {
+    max-width: $screen-three-card-container;
+  }
+  // 4 cards
+  @media (min-width: $screen-four-card-min) {
+    max-width: $screen-four-card-container;
+  }
+}
+
+.empty-note {
+  display: none;
+}
+
+.tool {
+  border-bottom: 1px solid $tool-border-bootom-bg;
+  margin-bottom: $gutter * 2; 
+
+  &__box, &__title, &__type, &__tag {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  &__box {
+    margin: 0 20px;
+  }
+  &__title {
+    color: $tool-title-font-color;
+    // line-height: $tool-title-line-height;
+    line-height: 1;
+    font-size: $tool-title-font-size;
+    padding-right: 20px;
+    // margin-bottom: 1px;
+    // font-weight: bold;
+  }
+  &__type {
+    margin: 0 -3px;
+  }
+  &__tag {
+    color: $tool-tag-font-color;
+    font-size: $tool-tag-font-size;
+    line-height: 1;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    margin: 5px 3px;
+    &--active {
+      color: $tool-tag--active-font-color;
+      background-color: $tool-tag--active-bg;
+    }
+    label {
+      display: block;
+      line-height: 1;
+      padding: 6px 8px;
+    }
+    input[type=radio] {
+      position: absolute;
+      left: -1px;
+      top: -1px;
+      height: 1px;
+      width: 1px;
+      z-index: -1;
+      opacity: 0;
+    }
+  }
+  @media (max-width: $screen-two-card-max) {
+    &__title, &__type {
+      display: table-cell;
+      vertical-align: top;
+      line-height: 34px;
+    }
+    &__title {
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+  }
+}
+
+.video-list {
+  width: 100%;
+  text-align: justify;
+  font-size: 0;
+  &:after {
+    content: '';
+    width: 100%;
+    display: inline-block;
+    font-size: 0;
+    line-height: 0;
+  }
+}
+
+@media (max-width: 537px) {
+  .video-list {
+    text-align: center;
+  }
+}

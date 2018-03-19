@@ -1,0 +1,80 @@
+//== Media queries breakpoints
+//
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+// Extra small screen / phone
+//** Deprecated `$screen-xs` as of v3.0.1
+$screen-xs:                  480px;
+//** Deprecated `$screen-xs-min` as of v3.2.0
+$screen-xs-min:              $screen-xs;
+//** Deprecated `$screen-phone` as of v3.0.1
+$screen-phone:               $screen-xs-min;
+
+// Small screen / tablet
+//** Deprecated `$screen-sm` as of v3.0.1
+$screen-sm:                  768px;
+$screen-sm-min:              $screen-sm;
+//** Deprecated `$screen-tablet` as of v3.0.1
+$screen-tablet:              $screen-sm-min;
+
+// Medium screen / desktop
+//** Deprecated `$screen-md` as of v3.0.1
+$screen-md:                  992px;
+$screen-md-min:              $screen-md;
+//** Deprecated `$screen-desktop` as of v3.0.1
+$screen-desktop:             $screen-md-min;
+
+// Large screen / wide desktop
+//** Deprecated `$screen-lg` as of v3.0.1
+$screen-lg:                  1280px;
+$screen-lg-min:              $screen-lg;
+//** Deprecated `$screen-lg-desktop` as of v3.0.1
+$screen-lg-desktop:          $screen-lg-min;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max:              ($screen-sm-min - 1);
+$screen-sm-max:              ($screen-md-min - 1);
+$screen-md-max:              ($screen-lg-min - 1);
+
+
+$tool-title-font-size: 14px;
+$tool-title-line-height: 21px;
+$tool-title-font-color: #787878;
+$tool-tag-font-size: 12px;
+$tool-tag-font-color: #787878;
+$tool-tag--active-font-color: #FFFFFF;
+$tool-tag--active-bg: #4283E4;
+$tool-border-bootom-bg: #D8D8D8;
+
+$gutter: 10px;
+$video-width: 240px;
+$video-height: 228px;
+$re-video-height: 240px;
+$video-outer-width: ($gutter * 2) + $video-width;
+
+$screen-two-card-min: $video-outer-width * 2 + ($gutter * 2);
+$screen-three-card-min: $video-outer-width * 3 + ($gutter * 2);
+$screen-four-card-min: $video-outer-width * 4 + ($gutter * 2);
+
+$screen-two-card-max: $screen-three-card-min - 1px;
+$screen-three-card-max: $screen-four-card-min - 1px;
+
+$screen-two-card-container: $screen-two-card-min + ($video-width / 6);
+$screen-three-card-container: $screen-three-card-min + ($video-width / 4);
+$screen-four-card-container: $screen-four-card-min + ($video-width / 2);
+
+$video-bg: #FFFFFF;
+$video-img-height: 135px;
+$video-duration-font-size: 12px;
+$video-duration-bg: #000000;
+$video-duration-font-color: #FFFFFF;
+$video-title-font-color: #212B36;
+$video-title-font-size: 14px;
+$vidoe-title-line-height: 20px;
+$video-views-font-size: 14px;
+$video-views-font-color: #787878;
+$video-tags-font-size: 12px;
+$video-tag-color: #FFFFFF;
+$video-tag--caption-bg: #4283E4;
+$video-tag--level-bg: #37C597;
+$video-icon: 19px;

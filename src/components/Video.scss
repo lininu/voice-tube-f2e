@@ -1,0 +1,92 @@
+@import "./global/variable";
+
+.video {
+  box-sizing: content-box;
+  width: $video-width;
+  height: $video-height;
+  display: inline-block;
+  vertical-align: top;
+  padding: $gutter $gutter;
+  text-align: left;
+  font-size: $video-title-font-size;
+  background-color: $video-bg;
+  &:hover {
+    .video__img img {
+      transform: scale(1.1) translate(-45%, -45%);
+    }
+  }
+  &__box {
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.30);
+    height: 100%;
+  }
+  &__content {
+    padding: ($gutter - 2px) $gutter;
+  }
+  &__title {
+    font-size: $video-title-font-size;
+    line-height: $vidoe-title-line-height;
+    height: $vidoe-title-line-height * 2;
+    overflow: hidden;
+    margin-bottom: $gutter - 5px;
+  }
+  &__img {
+    position: relative;
+    padding-bottom: $video-img-height;
+    overflow: hidden;
+    transform: translateZ(0);
+    img {
+      transition: all .5s ease;
+      position: absolute;
+      width: 100%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  &__duration {
+    font-size: $video-duration-font-size;
+    position: absolute;
+    right: $gutter - 2px;
+    bottom: $gutter - 2px;
+    padding: 4px 4px 3px 3px;
+    background: $video-duration-bg;
+    color: $video-duration-font-color;
+    font-family: 'SFUIText';
+    line-height: 1;
+    border-radius: 2px;
+    letter-spacing: 0.5px;
+  }
+  &__views {
+    * {
+      display: inline-block;
+      vertical-align: middle;
+      color: $video-views-font-color;
+    }
+    i {
+      font-size: $video-icon;
+      padding-right: 6px;
+    }
+    span {
+      font-size: $video-views-font-size;
+    }
+  }
+  &__tags {
+    font-size: $video-tags-font-size;
+    text-align: right;
+    margin: -.5em -4px 0;
+  }
+  &__tag {
+    color: $video-tag-color;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin: 0 4px;
+    &--caption {
+      background-color: $video-tag--caption-bg;
+    }
+    &--level {
+      background-color: $video-tag--level-bg;
+    }
+  }
+}

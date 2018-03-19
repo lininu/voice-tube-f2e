@@ -1,0 +1,19 @@
+@import "./variable";
+
+.recommend {
+  .video-list {
+    text-align: center;
+  }
+  .video {
+    height: $re-video-height;
+    &__tags {
+      margin-top: 7px;
+    }
+  }
+
+  .empty-note {
+    display: block;
+    text-align: center;
+    margin-top: $gutter * 10;
+  }
+}
