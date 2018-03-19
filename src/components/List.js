@@ -11,7 +11,7 @@ export default class List extends Component {
     super(props)
   }
   render() {
-    const { pageStatus, videos, actions, match, location, recommend } = this.props
+    const { pageStatus, videos, actions, match, location, recommend, bootstrapGrid } = this.props
     const search = location.search; // could be '?foo=bar'
     const params = new URLSearchParams(search);
     const videoSort = params.get('videoSort');
@@ -26,7 +26,11 @@ export default class List extends Component {
       return videoCounts;
     }
     return (
-      <div className={classnames({ recommend: recommend })}>
+      <div className={classnames({ 
+        recommend: recommend || bootstrapGrid,
+        'bootstrap-grid': bootstrapGrid,
+        common: bootstrapGrid !== true
+      })}>
         <div className="container">
           <div className="tool">
             <SortVideo {...this.props} videoSort={videoSort} />
@@ -35,7 +39,7 @@ export default class List extends Component {
           <div className="video-list">
             {videos.map(video => 
               (video.show !== false) ?
-              [<Video key={video.id} actions={actions} pageStatus={pageStatus} {...video}/>, ' '] : ''
+              [<Video key={video.id} actions={actions} pageStatus={pageStatus} bootstrapGrid={bootstrapGrid} {...video}/>, ' '] : ''
             )}
           </div>
           {videoShowLength(videos) == 0 ? <div className="empty-note">沒有相關影片，請重新篩選！</div> : ''}

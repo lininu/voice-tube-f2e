@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import classnames from 'classnames'
 import LinesEllipsis from 'react-lines-ellipsis'
 import moment from 'moment'
 import "moment-duration-format"
@@ -19,36 +20,43 @@ export default class Video extends Component {
     }, 0)
   }
   render() {
-    const { id, thumbnail, title, views, collectCount, duration, publish, level, captions } = this.props
+    const { id, thumbnail, title, views, collectCount, duration, publish, level, captions, bootstrapGrid } = this.props
     return (
-      <div className="video">
-        <div className="video__box">
-          <div className="video__img">
-            <img src={thumbnail} alt=""/>
-            <span className="video__duration">
-              {moment.duration(duration, "second").format('hh:mm:ss')}
-            </span>
-          </div>
-          <div className="video__content">
-            <div className="video__title">
-              <LinesEllipsis
-                text={title}
-                maxLine='2'
-                ellipsis='...'
-                // {<span>...<a href='/link/to/article'>Read more</a></span>}
-                basedOn='letters'
-              />
+      <div className={classnames({
+        'col-sm-6': bootstrapGrid,
+        'col-md-4': bootstrapGrid,
+        'col-lg-3': bootstrapGrid,
+        'video__normal': !bootstrapGrid
+      })}>
+        <div className="video">
+          <div className="video__box">
+            <div className="video__img">
+              <img src={thumbnail} alt=""/>
+              <span className="video__duration">
+                {moment.duration(duration, "second").format('hh:mm:ss')}
+              </span>
             </div>
-            <div className="video__status">
-              <div className="video__views">
-                <i className="material-icons">&#xE310;</i>
-                <span>{views}</span>
+            <div className="video__content">
+              <div className="video__title">
+                <LinesEllipsis
+                  text={title}
+                  maxLine='2'
+                  ellipsis='...'
+                  // {<span>...<a href='/link/to/article'>Read more</a></span>}
+                  basedOn='letters'
+                />
               </div>
-              <div className="video__tags">
-                { captions.map((caption, i)=>
-                    <span key={i} className="video__tag video__tag--caption">{LANGTYPE[caption]}</span>
-                )}
-                <span className="video__tag video__tag--level">{LEVELTYPE[level]}</span>
+              <div className="video__status">
+                <div className="video__views">
+                  <i className="material-icons">&#xE310;</i>
+                  <span>{views}</span>
+                </div>
+                <div className="video__tags">
+                  { captions.map((caption, i)=>
+                      <span key={i} className="video__tag video__tag--caption">{LANGTYPE[caption]}</span>
+                  )}
+                  <span className="video__tag video__tag--level">{LEVELTYPE[level]}</span>
+                </div>
               </div>
             </div>
           </div>

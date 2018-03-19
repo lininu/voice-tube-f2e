@@ -1,5 +1,9 @@
 @import "./global/variable";
 
+* {
+  box-sizing: border-box;
+}
+
 .container {
   margin: $gutter auto;
   @media (min-width: $screen-sm-min) {
@@ -8,17 +12,28 @@
   @media (min-width: $screen-lg-min) {
     margin: ($gutter * 4) auto;
   }
-  // 2 cards
+}
+
+.common {
+  .container {
+    // 2 cards
+    @media (min-width: $screen-two-card-min) {
+      max-width: $screen-two-card-container;
+    }
+    // 3 cards
+    @media (min-width: $screen-three-card-min) {
+      max-width: $screen-three-card-container;
+    }
+    // 4 cards
+    @media (min-width: $screen-four-card-min) {
+      max-width: $screen-four-card-container;
+    }
+  }
+  
   @media (min-width: $screen-two-card-min) {
-    max-width: $screen-two-card-container;
-  }
-  // 3 cards
-  @media (min-width: $screen-three-card-min) {
-    max-width: $screen-three-card-container;
-  }
-  // 4 cards
-  @media (min-width: $screen-four-card-min) {
-    max-width: $screen-four-card-container;
+    .video-list {
+      text-align: justify;
+    }
   }
 }
 
@@ -91,7 +106,7 @@
 
 .video-list {
   width: 100%;
-  text-align: justify;
+  text-align: center;
   font-size: 0;
   &:after {
     content: '';
@@ -99,11 +114,5 @@
     display: inline-block;
     font-size: 0;
     line-height: 0;
-  }
-}
-
-@media (max-width: 537px) {
-  .video-list {
-    text-align: center;
   }
 }

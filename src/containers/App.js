@@ -28,6 +28,14 @@ const App = ({actions, videos, status}) => (
                 videos={videos}
                 pageStatus={status} />
         )} />
+        <Route path="/ListBootstrap" 
+               render={ props =>(
+          <List {...props} 
+                bootstrapGrid={true}
+                actions={actions} 
+                videos={videos}
+                pageStatus={status} />
+        )} />
       </Switch>
     )}/>
   </Router>

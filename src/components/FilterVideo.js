@@ -66,7 +66,7 @@ export default class FilterVideo extends Component {
     })
   }
   render() {
-    const { recommend } = this.props
+    const { recommend, bootstrapGrid } = this.props
     return (
       <div className="tool__box">
         <div className="tool__title">長度</div>
@@ -78,7 +78,7 @@ export default class FilterVideo extends Component {
             <label htmlFor="filterVideosALL">不限</label>
             <input type="radio" id="filterVideosALL" name="filterVideosLength" checked={this.filterChecked(LENGTH_ALL)} value={LENGTH_ALL} onChange={this.filterChange}/>
           </div>
-          {recommend ?
+          {(recommend || bootstrapGrid) ?
             <div className={classnames({
               "tool__tag": true,
               "tool__tag--active": this.filterChecked(LENGTH_LESS_THEN_FIVE_MINS)
