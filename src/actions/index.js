@@ -9,13 +9,13 @@ export const videosReady = () => {
 
 export const videosInitSortReady = (status) => {
   return dispatch => {
-    return dispatch(task.videosInitSortReady(status))
+    dispatch(task.videosInitSortReady(status))
   }
 }
 
 export const videosInitFilterReady = (status) => {
   return dispatch => {
-    return dispatch(task.videosInitFilterReady(status))
+    dispatch(task.videosInitFilterReady(status))
   }
 }
 

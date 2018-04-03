@@ -1,4 +1,4 @@
-import 'whatwg-fetch'
+// import 'whatwg-fetch' // 其實create-react-app在config/polyfill就有包含惹QQ
 
 const fetchAPI = (url, options) => {
   return fetch(url, options)

@@ -42,7 +42,8 @@ export default class List extends Component {
               [<Video key={video.id} actions={actions} pageStatus={pageStatus} bootstrapGrid={bootstrapGrid} {...video}/>, ' '] : ''
             )}
           </div>
-          {videoShowLength(videos) == 0 ? <div className="empty-note">沒有相關影片，請重新篩選！</div> : ''}
+          { (videoShowLength(videos) == 0 && 
+            (recommend || bootstrapGrid)) ? <div className="empty-note">沒有相關影片，請重新篩選！</div> : ''}
         </div>
       </div>
     )
